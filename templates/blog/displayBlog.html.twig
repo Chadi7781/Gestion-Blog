@@ -1,0 +1,54 @@
+
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1 style="color: salmon ; font-size: 45px ;display: flex;align-items: center;justify-content: center; margin-top: 50px; text-align: center; font-weight: 400; font-family: Arial, Helvetica, sans-serif"
+
+
+    >LISTE DES BLOG</h1>
+
+    <div style="display: flex;align-items: center;justify-content: center">
+
+        <table border="1" style="padding: 42px; row-span: inherit" >
+            <thead>
+            <th>Titre</th>
+            <th>Contenu</th>
+            <th>Auteur</th>
+            <th>Suppression</th>
+            <th>Modification</th>
+            </thead>
+            <tbody>
+             {% for blog in b %}
+                <tr>
+                    <td>{{ blog.titre }}</td>
+                    <td>{{ blog.contenu }}</td>
+                    <td>{{ blog.auteur }}</td>
+                    <td>
+                        <a href="{{ path('remove_blog',{'id':blog.id}) }}">Supprimer</a>
+
+                    </td>
+                    <td>
+                        <a href="{{ path('update_blog',{'id':blog.id}) }}">Modifier</a>
+
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+
+
+
+    </div>
+
+{% endblock %}
+
+
+
+
+
